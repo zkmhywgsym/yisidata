@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffefebe7" >
+
+    <include layout="@layout/title_layout" android:id="@+id/title_layout"/>
+    <ScrollView
+        android:layout_below="@id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffefebe7" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10.0dip" >
+
+            <RelativeLayout
+                android:id="@+id/statistic_daily_title_layout"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/statistic_daily_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/statistic_daily_title"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/enter_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/label_color"
+                android:layout_margin="5dp" >
+
+                <TextView
+                    android:id="@+id/enter_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:text="@string/enter_title"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:id="@+id/mine_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/enter_title"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/mine_lable"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="7"
+                        android:text="@string/mine_lable"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/mine_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="2"
+                        android:text="20"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/mine_car_lable"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="5"
+                        android:text="@string/mine_car_lable"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/mine_car_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="2"
+                        android:text="20"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sodium_hydroxide_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mine_layout"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/sodium_hydroxide_lable"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="7"
+                        android:text="@string/sodium_hydroxide_lable"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/sodium_hydroxide_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="2"
+                        android:text="20"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/sodium_hydroxide_car_lable"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="5"
+                        android:text="@string/sodium_hydroxide_car_lable"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/sodium_hydroxide_car_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="2"
+                        android:text="20"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/label_color"
+                android:layout_margin="5dp" >
+
+                <TextView
+                    android:id="@+id/out_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:text="@string/out_title"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/out_title"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/materiel_lable"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="7"
+                        android:text="@string/materiel_lable"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/materiel_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="2"
+                        android:text="20"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/materiel_car_lable"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="5"
+                        android:text="@string/mine_car_lable"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/materiel_car_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_weight="2"
+                        android:text="20"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+            <!--
+            <RelativeLayout
+                    android:id="@+id/mine_weight_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_toRightOf="@id/mine_weight_lable" >
+
+                    <TextView
+                        android:id="@+id/enter_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/enter_title"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/enter_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/enter_title"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/enter_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/enter_title"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/enter_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/enter_title"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="10.0dip" >
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="20.0dip"
+                android:paddingTop="10.0dip"
+                android:text="证书名称:"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/login_input_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/login_page_input_name"
+                android:layout_toRightOf="@+id/login_page_input_name"
+                android:background="@drawable/edit_text_x"
+                android:editable="false"
+                android:hint="请选出证书"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/login_page_input_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_page_input_name"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="25.0dip"
+                android:paddingTop="10.0dip"
+                android:text="证书密码:"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/login_input_password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/login_input_name"
+                android:layout_alignTop="@+id/login_page_input_password"
+                android:layout_below="@+id/login_input_name"
+                android:layout_toRightOf="@+id/login_page_input_password"
+                android:background="@drawable/edit_text_x"
+                android:hint="请输入证书密码"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+
+            <CheckBox
+                android:id="@+id/remember_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/login_input_password"
+                android:layout_below="@+id/login_input_password"
+                android:layout_marginTop="15.0dip"
+                android:button="@drawable/login_remember"
+                android:text="记住我"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/login_comfirm_button"
+                android:layout_width="145.0dip"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/remember_user"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="15.0dip"
+                android:background="@drawable/android_big_button_x"
+                android:gravity="center"
+                android:text="登录"
+                android:textColor="#ff000000"
+                android:textSize="20.0sp" />
+
+            <Button
+                android:id="@+id/register_link"
+                android:layout_width="145.0dip"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/remember_user"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginTop="15.0dip"
+                android:layout_toRightOf="@+id/login_comfirm_button"
+                android:background="@drawable/android_big_button_x"
+                android:gravity="center"
+                android:text="注册"
+                android:textColor="#ff000000"
+                android:textSize="20.0sp" />            -->
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

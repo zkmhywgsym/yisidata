@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_height">45.0dip</dimen>
+    <dimen name="bottom_tab_font_size">12.0dip</dimen>
+    <dimen name="bottom_tab_padding_up">5.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
+    <!-- 进度按钮 -->
+    <dimen name="layer_padding">3dp</dimen>
+    <dimen name="corner_radius">2dp</dimen>
+   	<!-- 二级菜单 -->
+    <dimen name="second_menu_height">28dp</dimen>
+   	<!-- 明细 -->
+    <dimen name="search_detials_title_left_margin">28dp</dimen>
+</resources>

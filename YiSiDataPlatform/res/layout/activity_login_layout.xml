@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="32dp"
+    android:layout_marginRight="32dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="textEmailAddress"
+            android:hint="@string/login_name_hint" />
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="textPassword"
+            android:hint="@string/login_pwd_hint" />
+
+        <cn.com.jdsc.widget.ActionProcessButton
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/login_btn_login"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            custom:pb_colorComplete="@color/green_complete"
+            custom:pb_colorNormal="@color/blue_normal"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/purple_progress"
+            custom:pb_textProgress="@string/login_btn_logining" 
+            custom:pb_textError="帐号/密码错误" 
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

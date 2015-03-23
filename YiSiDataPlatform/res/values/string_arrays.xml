@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- 模拟数据 -->
+    <string-array name="materiel_type">
+        <item >原煤</item>
+        <item >液碱</item>
+        <item >原矿</item>
+    </string-array>
+    <string-array name="status">
+        <item >状态一</item>
+        <item >状态二</item>
+        <item >状态三</item>
+    </string-array>
+</resources>
