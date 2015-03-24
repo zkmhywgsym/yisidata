@@ -4,11 +4,15 @@
     <string-array name="materiel_type">
         <item >原煤</item>
         <item >液碱</item>
-        <item >原矿</item>
+        <item >石灰</item>
     </string-array>
     <string-array name="status">
-        <item >状态一</item>
-        <item >状态二</item>
-        <item >状态三</item>
+        <item >已交票</item>
+        <item >已派车</item>
+        <item >已发货</item>
+    </string-array>
+    <string-array name="types">
+        <item >入库</item>
+        <item >出库</item>
     </string-array>
 </resources>

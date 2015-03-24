@@ -21,15 +21,8 @@
             </intent-filter>
         </activity>
          <activity android:name="cn.com.yisi.HomeActivity"/>
-         <activity android:name="cn.com.yisi.ListDetailsActivity"/>
-         <activity android:name="cn.com.yisi.DateActivity"/>
          <activity android:name="cn.com.yisi.DateTimeActivity"/>
-         <activity android:name="cn.com.yisi.TimeActivity"/>
          <activity android:name="cn.com.yisi.SearchConditionActivity"/>
-        <activity android:name="cn.com.yisi.CategoryActivity"/>
-          <activity android:name="cn.com.yisi.CarActivity"/>
-        <activity android:name="cn.com.yisi.BuyActivity"/>
-        <activity android:name="cn.com.yisi.MoreActivity"/>
       
     </application>
 

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-//往来明细
+//统计分析
 public class ContactsDetailsFragment extends BaseFragment{
 	private ListView listView;
 	@Override
