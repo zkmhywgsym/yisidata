@@ -10,25 +10,26 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" 
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        <activity android:name="cn.com.jdsc.LoginActivity">
+        <activity android:name="cn.com.yisi.LoginActivity">
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name=".MainActivity" >
+            android:name="cn.com.yisi.MainActivity" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity android:name=".HomeActivity"/>
-         <activity android:name=".ListDetailsActivity"/>
-         <activity android:name=".DateActivity"/>
-         <activity android:name=".TimeActivity"/>
-         <activity android:name=".SearchConditionActivity"/>
-        <activity android:name=".CategoryActivity"/>
-          <activity android:name=".CarActivity"/>
-        <activity android:name=".BuyActivity"/>
-        <activity android:name=".MoreActivity"/>
+         <activity android:name="cn.com.yisi.HomeActivity"/>
+         <activity android:name="cn.com.yisi.ListDetailsActivity"/>
+         <activity android:name="cn.com.yisi.DateActivity"/>
+         <activity android:name="cn.com.yisi.DateTimeActivity"/>
+         <activity android:name="cn.com.yisi.TimeActivity"/>
+         <activity android:name="cn.com.yisi.SearchConditionActivity"/>
+        <activity android:name="cn.com.yisi.CategoryActivity"/>
+          <activity android:name="cn.com.yisi.CarActivity"/>
+        <activity android:name="cn.com.yisi.BuyActivity"/>
+        <activity android:name="cn.com.yisi.MoreActivity"/>
       
     </application>
 

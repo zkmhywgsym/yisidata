@@ -1,8 +1,9 @@
-package cn.com.jdsc;
+package cn.com.yisi;
 
-import cn.com.jdsc.widget.ActionProcessButton;
+import cn.com.jdsc.R;
 
 
+import cn.com.yisi.widget.ActionProcessButton;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

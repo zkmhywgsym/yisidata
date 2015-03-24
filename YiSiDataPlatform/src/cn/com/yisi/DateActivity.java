@@ -1,7 +1,8 @@
-package cn.com.jdsc;
+package cn.com.yisi;
 
 import java.util.Calendar;
 
+import cn.com.jdsc.R;
 import kankan.wheel.widget.OnWheelChangedListener;
 import kankan.wheel.widget.WheelView;
 import kankan.wheel.widget.adapters.AbstractWheelAdapter;

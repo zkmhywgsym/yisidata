@@ -35,7 +35,7 @@
         android:layout_centerInParent="true"
         android:padding="10.0dip"
         android:singleLine="true"
-        android:text="@string/ActivityMainTitle"
+        android:text="@string/mode_defaultActivityTitle"
         android:textColor="@color/white"
         android:textSize="15dp" />
 

@@ -27,7 +27,7 @@
             android:inputType="textPassword"
             android:hint="@string/login_pwd_hint" />
 
-        <cn.com.jdsc.widget.ActionProcessButton
+        <cn.com.yisi.widget.ActionProcessButton
             android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="48dp"

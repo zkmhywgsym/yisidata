@@ -1,5 +1,6 @@
-package cn.com.jdsc;
+package cn.com.yisi;
 
+import cn.com.jdsc.R;
 import cn.com.util.ExitManager;
 import android.app.Activity;
 import android.os.Bundle;

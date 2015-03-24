@@ -43,7 +43,7 @@
         android:layout_centerInParent="true"
         android:textSize="15dp"
         android:padding="10.0dip"
-        android:text="@string/main_navigation_catagory"
+        android:text="@string/main_navigation_home"
         android:textColor="@color/white"
         android:singleLine="true" />
 

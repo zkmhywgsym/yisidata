@@ -1,4 +1,4 @@
-package cn.com.jdsc.widget;
+package cn.com.yisi.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;

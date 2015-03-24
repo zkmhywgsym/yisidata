@@ -1,4 +1,4 @@
-package cn.com.jdsc.widget;
+package cn.com.yisi.widget;
 
 
 import cn.com.jdsc.R;

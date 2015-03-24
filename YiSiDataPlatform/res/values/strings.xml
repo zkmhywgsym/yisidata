@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<!-- 通用 -->
     <string name="app_name">易思数据平台V2.0</string>
-    <string name="ActivityMainTitle">易思数据平台</string>
     <string name="hint">请输入</string>
-    <string name="main_navigation_home">主页</string>
-    <string name="main_navigation_catagory">明细</string>
-    <string name="main_navigation_bang">汇总</string>
-    <string name="main_navigation_car">装卸车1</string>
-    <string name="main_navigation_more">更多</string>
     <string name="app_close">关闭应用程序</string>
     <string name="btn_cancel">取 消</string>
     <string name="btn_ok">确 定</string>
     <string name="cart_item_hint">还是先看下你想查什么吧!</string>
+    <!-- 导航 -->
+    <string name="main_navigation_home">主页</string>
+    <string name="main_navigation_details">明细</string>
+    <string name="main_navigation_gather">汇总</string>
+    <string name="main_navigation_contacts_details">往来明细</string>
+    <string name="main_navigation_more">更多</string>
+    <!-- 模块 -->
+    <string name="mode_defaultActivityTitle">易思数据平台</string>
+    <string name="mode_statistic_daily_title">当日累计</string>
+    <string name="mode_search_conditions">查询条件</string>
+    <string name="mode_details">明细</string>
+    <string name="mode_gather">汇总</string>
+    <string name="mode_contacts_details">往来明细</string>
+    <string name="mode_home_page">首页</string>
+    <string name="mode_more">更多</string>
+    
+    <string name="mode_personal_info">个人信息</string>
+    <string name="mode_login_manager">帐号管理</string>
+    <string name="mode_cash">余额查询</string>
+    <string name="mode_pay">结算</string>
+    <string name="mode_sys_set">系统设置</string>
+    <string name="mode_car_in_factory">未出厂车辆</string>
+    
     <!-- 查询 -->
-    <string name="search_details">\>出库明细查询:</string>
+    <string name="search_details_out">\>出库明细查询:</string>
+    <string name="search_gather_out">\>出库汇总查询:</string>
+    <string name="search_contacts_details">\>往来明细查询:</string>
     <string name="start_time">开始日期:</string>
     <string name="end_time">截止日期:</string>
     <string name="materiel">物料:</string>
@@ -28,7 +47,6 @@
     <string name="login_btn_login">登陆</string>
     <string name="login_btn_logining">正在登陆中……</string>
     <!-- 日累 -->
-    <string name="statistic_daily_title">当日累计</string>
     <string name="enter_title">入库</string>
     <string name="mine_lable">原煤净重(吨)</string>
     <string name="mine_car_lable">车数(辆)</string>

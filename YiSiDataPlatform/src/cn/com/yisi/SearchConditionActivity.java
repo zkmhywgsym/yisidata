@@ -1,4 +1,4 @@
-package cn.com.jdsc;
+package cn.com.yisi;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import cn.com.jdsc.R;
 import cn.com.util.ExitManager;
 import android.app.Activity;
 import android.content.Intent;

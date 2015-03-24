@@ -1,4 +1,4 @@
-package cn.com.jdsc.entity;
+package cn.com.yisi.entity;
 //详情实体
 public class EntityDetails {
 	private String provider;//供应商/客户

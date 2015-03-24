@@ -15,7 +15,6 @@
             android:layout_height="0.0dip"
             android:layout_weight="1.0" />
 
-        <include layout="@layout/second_menu_item" android:visibility="gone"/>
 
         <TabWidget
             android:id="@android:id/tabs"
@@ -50,22 +49,22 @@
                     android:text="@string/main_navigation_home" />
 
                 <RadioButton
-                    android:id="@+id/main_tab_catagory"
+                    android:id="@+id/main_tab_details"
                     style="@style/main_tab_bottom"
                     android:drawableTop="@drawable/main_navigation_catagory"
-                    android:text="@string/main_navigation_catagory" />
+                    android:text="@string/main_navigation_details" />
 
                 <RadioButton
-                    android:id="@+id/main_tab_car"
+                    android:id="@+id/main_tab_gather"
                     style="@style/main_tab_bottom"
                     android:drawableTop="@drawable/main_navigation_car"
-                    android:text="@string/main_navigation_car" />
+                    android:text="@string/main_navigation_gather" />
 
                 <RadioButton
-                    android:id="@+id/main_tab_bang"
+                    android:id="@+id/main_tab_contacts_details"
                     style="@style/main_tab_bottom"
                     android:drawableTop="@drawable/main_navigation_personal"
-                    android:text="@string/main_navigation_bang" />
+                    android:text="@string/main_navigation_contacts_details" />
 
                 <RadioButton
                     android:id="@+id/main_tab_more"

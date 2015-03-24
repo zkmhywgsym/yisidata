@@ -1,10 +1,11 @@
-package cn.com.jdsc;
+package cn.com.yisi;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.com.jdsc.entity.EntityDetails;
+import cn.com.jdsc.R;
 import cn.com.util.ExitManager;
+import cn.com.yisi.entity.EntityDetails;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
