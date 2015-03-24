@@ -43,14 +43,14 @@ public class DetailsFragment extends BaseFragment{
 	private List<EntityDetails> testData(){
 		List<EntityDetails> list=new ArrayList<EntityDetails>();
 		EntityDetails entity=null;
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 3; i++) {
 			entity=new EntityDetails();
-			entity.setCarNum(i+1+"");
-			entity.setLightTime("lightTime"+i);
+			entity.setCarNum("½úA5384"+i);
+			entity.setLightTime("2015-03-24 11:37");
 			entity.setMetariel("Ô­Ãº");
-			entity.setProvider("Ãº¿ó"+i);
-			entity.setWeight((30+i)+"");
-			entity.setWeightTime("weightTime"+i);
+			entity.setProvider("ÐË¾ÛÔ´");
+			entity.setWeight((i+1)+"");
+			entity.setWeightTime("2015-03-24 15:52"+i);
 			list.add(entity);
 		}
 		return list;

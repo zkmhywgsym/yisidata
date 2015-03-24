@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.KeyEvent;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RadioButton;
@@ -25,6 +25,7 @@ public class MainActivity extends FragmentActivity {
 	public String mode;//Ä£¿é
 	public String type;//ÀàÐÍ
 	private FragmentManager fragmentManager;
+	private BaseFragment curFragment;
 	private RadioButton main_tab_home, main_tab_details, main_tab_gather,main_tab_contacts_details, main_tab_more;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,39 +97,47 @@ public class MainActivity extends FragmentActivity {
     	otherFragment(new HomeFragment());
     }
     public void otherFragment(BaseFragment fragment){
+    	curFragment=fragment;
     	FragmentTransaction ft=fragmentManager.beginTransaction();
     	ft.replace(android.R.id.tabcontent, fragment);
     	ft.commit();
     }
-    
-    public boolean dispatchKeyEvent( KeyEvent event) {
-		int keyCode=event.getKeyCode();
-	      if (keyCode == KeyEvent.KEYCODE_BACK) {
-			if (event.getRepeatCount() == 0) {
-				AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-						MainActivity.this);
-				alertDialog.setTitle(MainActivity.this
-						.getString(R.string.app_close));
-				alertDialog.setPositiveButton(MainActivity.this
-						.getString(R.string.btn_ok),
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int which) {
-								ExitManager.getInstance().exit();
-							}
-						});
-				alertDialog.setNegativeButton(MainActivity.this
-						.getString(R.string.btn_cancel),
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int which) {
-							}
-						});
-				alertDialog.show();
-			}
+    AlertDialog dialog=null;
+    @Override
+    public void onBackPressed() {
+    	Log.e(getClass().getSimpleName(), "st1");
+    	if (dialog!=null&&dialog.isShowing()) {
+			dialog.dismiss();
 		}
-		return super.dispatchKeyEvent(event);
-	}
+    	Log.e(getClass().getSimpleName(), "st2");
+    	AlertDialog.Builder alertDialog = new AlertDialog.Builder(
+				MainActivity.this);
+		alertDialog.setTitle(MainActivity.this
+				.getString(R.string.app_close));
+		alertDialog.setPositiveButton(MainActivity.this
+				.getString(R.string.btn_ok),
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,
+							int which) {
+						ExitManager.getInstance().exit();
+					}
+				});
+		alertDialog.setNegativeButton(MainActivity.this
+				.getString(R.string.btn_cancel),
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,
+							int which) {
+						dialog.dismiss();
+					}
+				});
+		dialog=alertDialog.create();
+		dialog.show();
+    }
+    public void onClick(View view){
+    	if (curFragment!=null) {
+			curFragment.doBack(view);
+		}
+    }
 
 
 }

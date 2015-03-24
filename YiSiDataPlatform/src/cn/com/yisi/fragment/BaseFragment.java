@@ -60,4 +60,7 @@ public class BaseFragment extends Fragment{
 		}
 		return super.getView();
 	}
+	//重写以响应点击事件
+	public void doBack(View view) {
+	}
 }

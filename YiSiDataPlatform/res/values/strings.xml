@@ -11,7 +11,7 @@
     <string name="main_navigation_home">主页</string>
     <string name="main_navigation_details">明细</string>
     <string name="main_navigation_gather">汇总</string>
-    <string name="main_navigation_contacts_details">往来明细</string>
+    <string name="main_navigation_contacts_details">统计分析</string>
     <string name="main_navigation_more">更多</string>
     <!-- 模块 -->
     <string name="mode_defaultActivityTitle">易思数据平台</string>
@@ -19,26 +19,26 @@
     <string name="mode_search_conditions">查询条件</string>
     <string name="mode_details">明细</string>
     <string name="mode_gather">汇总</string>
-    <string name="mode_contacts_details">往来明细</string>
+    <string name="mode_contacts_details">统计分析</string>
     <string name="mode_home_page">首页</string>
     <string name="mode_more">更多</string>
     
     <string name="mode_personal_info">个人信息</string>
-    <string name="mode_login_manager">帐号管理</string>
-    <string name="mode_cash">余额查询</string>
-    <string name="mode_pay">结算</string>
+    <string name="mode_feed_back">意见反馈</string>
+    <string name="mode_about">关于我们</string>
     <string name="mode_sys_set">系统设置</string>
-    <string name="mode_car_in_factory">未出厂车辆</string>
+    <string name="mode_update">系统更新</string>
     
     <!-- 查询 -->
-    <string name="search_details_out">\>出库明细查询:</string>
-    <string name="search_gather_out">\>出库汇总查询:</string>
-    <string name="search_contacts_details">\>往来明细查询:</string>
+    <string name="search_details_out">明细查询</string>
+    <string name="search_gather_out">汇总查询</string>
+    <string name="search_contacts_details">统计分析</string>
     <string name="start_time">开始日期:</string>
     <string name="end_time">截止日期:</string>
     <string name="materiel">物料:</string>
     <string name="car_num">车辆:</string>
     <string name="status">状态:</string>
+    <string name="type">类型:</string>
     <string name="btn_search">查询</string>
     <string name="btn_clear">清空</string>
     <!-- 登陆 -->
