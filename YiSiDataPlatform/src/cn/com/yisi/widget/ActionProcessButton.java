@@ -1,6 +1,5 @@
 package cn.com.yisi.widget;
 
-import cn.com.jdsc.R;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
+import cn.com.ysdp.R;
 
 
 /*

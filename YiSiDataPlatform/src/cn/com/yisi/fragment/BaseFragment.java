@@ -1,8 +1,7 @@
 package cn.com.yisi.fragment;
 
-import cn.com.jdsc.R;
-import cn.com.yisi.MainActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,17 +10,35 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import cn.com.yisi.MainActivity;
+import cn.com.yisi.util.Constants;
+import cn.com.ysdp.R;
 
 public class BaseFragment extends Fragment{
 	protected View rootView;
 	protected MainActivity mainActivity;
+	protected String flag;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		FragmentActivity acitvity=getActivity();
 		if (acitvity instanceof MainActivity) {
-			mainActivity=(MainActivity) acitvity;
+			mainActivity= (MainActivity) acitvity;
 		}
+	}
+	public void setValue(Intent activityIntent,String name,String value){
+		if (activityIntent==null) {
+			Log.e(getClass().getSimpleName(), "setValue() activityIntent==null");
+			return ;
+		}
+		activityIntent.putExtra(name, value);
+	}
+	public String getValue(Intent activityIntent,String name){
+		if (activityIntent==null) {
+			Log.e(getClass().getSimpleName(), "getValue() activityIntent==null");
+			return "get Intent Value False";
+		}
+		return activityIntent.getStringExtra(name);
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,23 +52,26 @@ public class BaseFragment extends Fragment{
 	}
 	@Override
 	public void onResume() {
-		if (rootView!=null) {
-			if (rootView.findViewById(R.id.titleText)==null) {
-				Log.e(getClass().getSimpleName(), "没定义标题栏");
-				((ViewGroup)rootView).addView(LayoutInflater.from(getActivity()).inflate(R.layout.title_layout, (ViewGroup) rootView,false));
+			if (this instanceof HomeFragment) {
+				getActivity().findViewById(R.id.btn_titleLeftButton).setVisibility(View.GONE);
+				getActivity().findViewById(R.id.btn_titleRightButton).setVisibility(View.GONE);
+			}else{
+				getActivity().findViewById(R.id.btn_titleLeftButton).setVisibility(View.VISIBLE);
+				getActivity().findViewById(R.id.btn_titleRightButton).setVisibility(View.VISIBLE);
 			}
-			((TextView)rootView.findViewById(R.id.titleText)).setText(getTitle());
-		}
+			((TextView)getActivity().findViewById(R.id.titleText)).setText(getTitle());
 		super.onResume();
 	}
-	//重写以修改标题
 	public String getTitle(){
 		return getResources().getString(R.string.mode_defaultActivityTitle);
 	}
 	@Override
 	public void onStart() {
-		mainActivity.mode=getTitle();
+		setValue(getActivity().getIntent(),Constants.MODE, getTitle());
 		super.onStart();
+	}
+	public void onResult(Intent intent){
+		
 	}
 	@Override
 	public View getView() {
@@ -60,7 +80,6 @@ public class BaseFragment extends Fragment{
 		}
 		return super.getView();
 	}
-	//重写以响应点击事件
 	public void doBack(View view) {
 	}
 }

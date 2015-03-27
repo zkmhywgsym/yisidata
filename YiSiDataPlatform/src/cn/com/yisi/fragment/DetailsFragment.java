@@ -3,8 +3,6 @@ package cn.com.yisi.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.com.jdsc.R;
-import cn.com.yisi.entity.EntityDetails;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,9 +11,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-//��ϸ
+import cn.com.yisi.entity.EntityDetails;
+import cn.com.yisi.util.Constants;
+import cn.com.ysdp.R;
+//明细
 public class DetailsFragment extends BaseFragment{
 	private ListView listView;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class DetailsFragment extends BaseFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		
+		flag=getValue(mainActivity.getIntent(),Constants.FLAG);
 		rootView=LayoutInflater.from(getActivity()).inflate(R.layout.activity_list_details_layout, container,false);
 		listView=(ListView) rootView.findViewById(R.id.list_view);
 		listView.setAdapter(new MyListAdapter(testData()));
@@ -45,12 +47,13 @@ public class DetailsFragment extends BaseFragment{
 		EntityDetails entity=null;
 		for (int i = 0; i < 3; i++) {
 			entity=new EntityDetails();
-			entity.setCarNum("��A5384"+i);
-			entity.setLightTime("2015-03-24 11:37");
-			entity.setMetariel("ԭú");
-			entity.setProvider("�˾�Դ");
+			entity.setCarNum("晋A5384"+i);
+			entity.setTime("2015-03-24 11:37");
+			entity.setMetariel("原煤");
+			entity.setProvider("中煤集团");
 			entity.setWeight((i+1)+"");
-			entity.setWeightTime("2015-03-24 15:52"+i);
+			entity.setType("send");
+			entity.setStatue("已发货");
 			list.add(entity);
 		}
 		return list;
@@ -85,32 +88,48 @@ public class DetailsFragment extends BaseFragment{
 			if (view==null) {
 				view=LayoutInflater.from(root.getContext()).inflate(R.layout.item_list_details_layout, root,false);
 				holder=new Holder();
-				holder.carNum=(TextView) view.findViewById(R.id.tv_car_num_value);
+				holder.carNumLabel=(TextView) view.findViewById(R.id.tv_label_car_num);
+				holder.carNumValue=(TextView) view.findViewById(R.id.tv_car_num_value);
 				holder.meteriel=(TextView) view.findViewById(R.id.tv_materiel_value);
-				holder.provider=(TextView) view.findViewById(R.id.tv_provider_value);
-				holder.timeLight=(TextView) view.findViewById(R.id.tv_time_light_value);
-				holder.timeWeight=(TextView) view.findViewById(R.id.tv_time_weight_value);
-				holder.weight=(TextView) view.findViewById(R.id.tv_weight_value);
+				holder.providerLabel=(TextView) view.findViewById(R.id.tv_privader_label);
+				holder.providerValue=(TextView) view.findViewById(R.id.tv_provider_value);
+				holder.timeLabel=(TextView) view.findViewById(R.id.tv_label_time);
+				holder.timeValue=(TextView) view.findViewById(R.id.tv_time_value);
+				holder.weight=(TextView) view.findViewById(R.id.tv_value_weight);
+				holder.statue=(TextView) view.findViewById(R.id.tv_statue_value);
 				view.setTag(holder);
 			}else{
 				holder=(Holder) view.getTag();
 			}
 			EntityDetails entity=list.get(index);
-			holder.carNum.setText(entity.getCarNum());
+			holder.carNumLabel.setText(getResources().getString(R.string.details_carCode));
+			if (Constants.FLAG_RECEIVE.equals(getValue(mainActivity.getIntent(),Constants.FLAG))) {
+				holder.providerLabel.setText(getResources().getString(R.string.details_client));
+				holder.timeLabel.setText(getResources().getString(R.string.details_time_light_label));
+				
+			}else if (Constants.FLAG_SEND.equals(getValue(mainActivity.getIntent(),Constants.FLAG))) {
+				holder.providerLabel.setText(getResources().getString(R.string.details_provider));
+				holder.timeLabel.setText(getResources().getString(R.string.details_time_weight_label));
+				
+			}
 			holder.meteriel.setText(entity.getMetariel());
-			holder.provider.setText(entity.getProvider());
-			holder.timeLight.setText(entity.getLightTime());
-			holder.timeWeight.setText(entity.getWeightTime());
+			holder.providerValue.setText(entity.getProvider());
 			holder.weight.setText(entity.getWeight());
+			holder.carNumValue.setText(entity.getCarNum());
+			holder.timeValue.setText(entity.getTime());
+			holder.statue.setText(entity.getStatue());
 			return view;
 		}
 		private class Holder{
-			private TextView carNum;
+			private TextView providerLabel;
+			private TextView providerValue;
+			private TextView carNumLabel;
+			private TextView carNumValue;
 			private TextView meteriel;
-			private TextView provider;
-			private TextView timeLight;
-			private TextView timeWeight;
+			private TextView timeLabel;
+			private TextView timeValue;
 			private TextView weight;
+			private TextView statue;
 		}
 		
 	}

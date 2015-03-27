@@ -1,12 +1,12 @@
 package cn.com.yisi.fragment;
 
-import cn.com.jdsc.R;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-//¸ü¶à
+import cn.com.ysdp.R;
+//ï¿½ï¿½ï¿½ï¿½
 public class MoreFragment extends BaseFragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

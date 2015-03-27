@@ -1,36 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
+    android:background="#106184" 
     android:layout_height="50.0dip" >
 
-    <ImageView
-        android:id="@+id/titleBg"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#106184" />
 
     <ImageView
-        android:id="@+id/progressImage"
-        android:layout_width="0.0dip"
+        android:id="@+id/iv_title_progress"
+        android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:background="@drawable/android_title_bg_progress"
+        android:background="@drawable/android_title_bg_progress"/>
+
+    <Button
+        android:id="@+id/btn_titleLeftButton"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/btn_title_left"
+        android:background="#3AADF2"
+        android:onClick="onClick"
         android:visibility="gone" />
 
     <Button
-        android:id="@+id/titleRightButton"
-        style="\@style/title_right_button"
-        android:layout_width="100.0dip"
+        android:id="@+id/btn_titleRightButton"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center_vertical"
-        android:layout_marginRight="5.0dip"
-        android:layout_marginTop="2.0dip"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:background="#3AADF2"
+        android:onClick="onClick"
+        android:text="@string/btn_title_right"
         android:visibility="gone" />
 
     <TextView
         android:id="@+id/titleText"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="10.0dip"

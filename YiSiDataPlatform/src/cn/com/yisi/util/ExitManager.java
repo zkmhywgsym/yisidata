@@ -1,11 +1,11 @@
-package cn.com.util;
+package cn.com.yisi.util;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import android.app.Activity;
 import android.app.Application;
-//ÍË³ö¹ÜÀí
+//ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
 public class ExitManager extends Application{
 	private List<Activity> activityList=new LinkedList<Activity>();
 	   private static ExitManager instance;

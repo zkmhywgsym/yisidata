@@ -1,10 +1,10 @@
-package cn.com.util;
+package cn.com.yisi.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-//时间工具类
+//时锟戒工锟斤拷锟斤拷
 public class TimeUtils {
 	private static Calendar cal=Calendar.getInstance();
 	public static void setTime(Date date){

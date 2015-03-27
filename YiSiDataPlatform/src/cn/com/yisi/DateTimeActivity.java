@@ -10,14 +10,16 @@ import kankan.wheel.widget.adapters.ArrayWheelAdapter;
 import kankan.wheel.widget.adapters.NumericWheelAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import cn.com.jdsc.R;
+import cn.com.ysdp.R;
 
 public class DateTimeActivity extends DialogActivity {
 	public static final int DATE_RESULT = 10011;
@@ -54,10 +56,9 @@ public class DateTimeActivity extends DialogActivity {
 		int curMonth = calendar.get(Calendar.MONTH);
 		String months[] = new String[] { "01", "02", "03", "04", "05", "06",
 				"07", "08", "09", "10", "11", "12" };
-		// String months[] = new String[] {"一月", "二月", "三月", "四月", "五月",
-		// "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"};
 		month.setViewAdapter(new DateArrayAdapter(this, months, curMonth));
 		month.setCurrentItem(curMonth);
+		month.getViewAdapter().setCurrentIndex(curMonth);
 		month.addChangingListener(listener);
 
 		// year
@@ -66,17 +67,22 @@ public class DateTimeActivity extends DialogActivity {
 				curYear + 10, 0));
 
 		year.setCurrentItem(10);
+		year.getViewAdapter().setCurrentIndex(10);
 		year.addChangingListener(listener);
 
 		// day
 		updateDays(year, month, day);
 		day.setCurrentItem(calendar.get(Calendar.DAY_OF_MONTH) - 1);
 		final WheelView hours = (WheelView) findViewById(R.id.hour);
-		hours.setViewAdapter(new NumericWheelAdapter(this, 0, 23));
+		hours.setViewAdapter(new DateNumericAdapter(this, 0, 23,0));
 
 		final WheelView mins = (WheelView) findViewById(R.id.mins);
-		mins.setViewAdapter(new NumericWheelAdapter(this, 0, 59, "%02d"));
+		mins.setViewAdapter(new DateNumericAdapter(this, 0, 59,0, "%02d"));
 		mins.setCyclic(true);
+		year.setCyclic(true);
+		month.setCyclic(true);
+		day.setCyclic(true);
+		hours.setCyclic(true);
 
 		findViewById(R.id.confirm_button).setOnClickListener(
 				new OnClickListener() {
@@ -123,7 +129,9 @@ public class DateTimeActivity extends DialogActivity {
 		int curMinutes = c.get(Calendar.MINUTE);
 
 		hours.setCurrentItem(curHours);
+		hours.getViewAdapter().setCurrentIndex(curHours);
 		mins.setCurrentItem(curMinutes);
+		mins.getViewAdapter().setCurrentIndex(curMinutes);
 
 		// add listeners
 		addChangingListener(mins, "min");
@@ -157,9 +165,14 @@ public class DateTimeActivity extends DialogActivity {
 			@Override
 			public void onScrollingFinished(WheelView wheel) {
 				timeScrolled = false;
+				wheel.getViewAdapter().setCurrentIndex(wheel.getCurrentItem());
+				wheel.getViewAdapter().notifyDataSetChanged();;
 			}
 		};
 
+		year.addScrollingListener(scrollListener);
+		month.addScrollingListener(scrollListener);
+		day.addScrollingListener(scrollListener);
 		hours.addScrollingListener(scrollListener);
 		mins.addScrollingListener(scrollListener);
 	}
@@ -178,6 +191,9 @@ public class DateTimeActivity extends DialogActivity {
 				.get(Calendar.DAY_OF_MONTH) - 1));
 		int curDay = Math.min(maxDays, day.getCurrentItem() + 1);
 		day.setCurrentItem(curDay - 1, true);
+		day.getViewAdapter().setCurrentIndex(calendar
+				.get(Calendar.DAY_OF_MONTH) - 1);
+		day.getViewAdapter().notifyDataSetChanged();
 	}
 
 	/**
@@ -194,16 +210,21 @@ public class DateTimeActivity extends DialogActivity {
 		 */
 		public DateNumericAdapter(Context context, int minValue, int maxValue,
 				int current) {
-			super(context, minValue, maxValue);
+			this(context, minValue, maxValue, current, null);
+		}
+		public DateNumericAdapter(Context context, int minValue, int maxValue,
+				int current,String format) {
+			super(context, minValue, maxValue, format);
 			this.currentValue = current;
-			setTextSize(16);
+			setTextSize(20);
 		}
 
 		@Override
 		protected void configureTextView(TextView view) {
 			super.configureTextView(view);
 			if (currentItem == currentValue) {
-				view.setTextColor(0xFF0000F0);
+				view.setTextColor(Color.RED);
+				view.getPaint().setFakeBoldText(true);
 			}
 			view.setTypeface(Typeface.SANS_SERIF);
 		}
@@ -212,6 +233,14 @@ public class DateTimeActivity extends DialogActivity {
 		public View getItem(int index, View cachedView, ViewGroup parent) {
 			currentItem = index;
 			return super.getItem(index, cachedView, parent);
+		}
+		@Override
+		public void setCurrentIndex(int index) {
+			currentValue=index;
+		}
+		@Override
+		public int getCurrentIndex() {
+			return currentValue;
 		}
 	}
 
@@ -230,14 +259,23 @@ public class DateTimeActivity extends DialogActivity {
 		public DateArrayAdapter(Context context, String[] items, int current) {
 			super(context, items);
 			this.currentValue = current;
-			setTextSize(16);
+			setTextSize(20);
 		}
 
+		@Override
+		public void setCurrentIndex(int index) {
+			currentValue=index;
+		}
+		@Override
+		public int getCurrentIndex() {
+			return currentValue;
+		}
 		@Override
 		protected void configureTextView(TextView view) {
 			super.configureTextView(view);
 			if (currentItem == currentValue) {
-				view.setTextColor(0xFF0000F0);
+				view.getPaint().setFakeBoldText(true);
+				view.setTextColor(Color.RED);
 			}
 			view.setTypeface(Typeface.SANS_SERIF);
 		}

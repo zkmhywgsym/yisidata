@@ -1,7 +1,14 @@
 package cn.com.yisi.fragment;
 
+import java.util.Locale;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,13 +17,15 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import cn.com.jdsc.R;
+import cn.com.yisi.DateDialogFragment;
 import cn.com.yisi.DateTimeActivity;
+import cn.com.yisi.util.Constants;
+import cn.com.ysdp.R;
 
-//查询
+//
 public class ConditionFragment extends BaseFragment implements OnClickListener {
-	private EditText ETstartTime, ETendTime, ETcarNum;// 开始时间，截止时间，车数
-	private Spinner Smateriel, Sstatus, Stype;// 物料，状态，类型
+	private EditText ETstartTime, ETendTime, ETcarNum;//
+	private Spinner Smateriel, Sstatus, ScarType;//
 	public static final int REQUEST_START_TIME_CODE = 10021,
 			REQUEST_END_TIME_CODE = 10022;
 
@@ -36,24 +45,51 @@ public class ConditionFragment extends BaseFragment implements OnClickListener {
 
 	@Override
 	public String getTitle() {
-		int rid="details".equals(mainActivity.type) ? R.string.search_details_out
-				: "gather".equals(mainActivity.type) ? R.string.search_gather_out
+		int rid = Constants.TYPE_DETAILS.equals(getValue(getActivity().getIntent(),Constants.TYPE)) ? R.string.search_details_out
+				: Constants.TYPE_GATHER.equals(getValue(getActivity().getIntent(),Constants.TYPE)) ? R.string.search_gather_out
 						: R.string.search_contacts_details;
 		return getResources().getString(rid);
 	}
 
 	private void initView() {
-		TextView TVtype = (TextView) rootView.findViewById(R.id.second_title);
-		TVtype.setText(R.string.mode_search_conditions);
+		flag=Constants.FLAG_RECEIVE;
+		((TextView) rootView.findViewById(R.id.second_title1))
+				.setOnClickListener(this);
+		((TextView) rootView.findViewById(R.id.second_title2))
+				.setOnClickListener(this);
+		((TextView) rootView.findViewById(R.id.second_title3))
+				.setOnClickListener(this);
 		rootView.findViewById(R.id.btn_search).setOnClickListener(this);
 		ETcarNum = (EditText) rootView.findViewById(R.id.et_car_num);
 		ETendTime = (EditText) rootView.findViewById(R.id.et_end_time);
 		ETstartTime = (EditText) rootView.findViewById(R.id.et_start_time);
 		Smateriel = (Spinner) rootView.findViewById(R.id.s_materiel);
 		Sstatus = (Spinner) rootView.findViewById(R.id.s_status);
-		Stype = (Spinner) rootView.findViewById(R.id.s_type);
+		ScarType = (Spinner) rootView.findViewById(R.id.s_car_type);
 		rootView.findViewById(R.id.btn_search).setOnClickListener(this);
-		ETcarNum.setText(30 + "");
+		ETcarNum.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void onTextChanged(CharSequence chars, int arg1, int arg2,
+					int arg3) {
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence chars, int arg1,
+					int arg2, int arg3) {
+			}
+
+			@Override
+			public void afterTextChanged(Editable editable) {
+				if (editable != null
+						&& !editable.toString().toUpperCase(Locale.CHINA)
+								.equals(editable.toString())) {
+					ETcarNum.setText(editable.toString().toUpperCase(
+							Locale.CHINA));
+				}
+				Spannable t = editable;
+				Selection.setSelection(t, editable.toString().length());
+			}
+		});
 		ETstartTime.setText("2015-03-23 11:51");
 		ETendTime.setText("2015-03-23 11:51");
 		ETstartTime.setOnClickListener(this);
@@ -70,49 +106,73 @@ public class ConditionFragment extends BaseFragment implements OnClickListener {
 		statusAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		Sstatus.setAdapter(statusAdapter);
-		ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(
+		ArrayAdapter<String> carTypeAdapter = new ArrayAdapter<String>(
 				mainActivity, android.R.layout.simple_spinner_item,
-				getResources().getStringArray(R.array.types));
-		typeAdapter
+				getResources().getStringArray(R.array.car_types));
+		carTypeAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		Stype.setAdapter(typeAdapter);
+		ScarType.setAdapter(carTypeAdapter);
 	}
 
 	@Override
 	public void onClick(View view) {
-		Intent intent = new Intent(mainActivity, DateTimeActivity.class);
+		FragmentTransaction ft = mainActivity.getSupportFragmentManager()
+				.beginTransaction();
+		Intent intent = mainActivity.getIntent();
 		int id = view.getId();
 		switch (id) {
-		case R.id.et_start_time:// 选择开始时间
-			startActivityForResult(intent, REQUEST_START_TIME_CODE);
+		case R.id.second_title1:// in
+			flag = Constants.FLAG_RECEIVE;
 			break;
-		case R.id.et_end_time:// 选择截止时间
-			startActivityForResult(intent, REQUEST_END_TIME_CODE);
+		case R.id.second_title2:// out
+			flag = Constants.FLAG_SEND;
 			break;
-		case R.id.btn_search:// 查找
+		case R.id.second_title3:// all
+			break;
+		case R.id.et_start_time://
+			DateDialogFragment dialog1 = DateDialogFragment.newInstance();
+			intent.putExtra("requestCode", REQUEST_START_TIME_CODE);
+			ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+			dialog1.show(ft, "df");
+			// startActivityForResult(intent, REQUEST_START_TIME_CODE);
+			break;
+		case R.id.et_end_time://
+			DateDialogFragment dialog2 = DateDialogFragment.newInstance();
+			intent.putExtra("requestCode", REQUEST_END_TIME_CODE);
+			ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+			dialog2.show(ft, "df");
+			// intent.putExtra("requestCode", REQUEST_END_TIME_CODE);
+			// startActivityForResult(intent, REQUEST_END_TIME_CODE);
+			break;
+		case R.id.btn_search://
 			Intent i = getActivity().getIntent();
 			i.putExtra("startTime", ETstartTime.getText().toString());
 			i.putExtra("endTime", ETendTime.getText().toString());
 			i.putExtra("carNum", ETcarNum.getText().toString());
 			i.putExtra("materiel", Smateriel.getSelectedItem().toString());
 			i.putExtra("status", Sstatus.getSelectedItem().toString());
-			BaseFragment fragment = "details".equals(mainActivity.type) ? new DetailsFragment()
-					: "gather".equals(mainActivity.type) ? new GatherFragment()
+			BaseFragment fragment = Constants.TYPE_DETAILS
+					.equals(getValue(getActivity().getIntent(),Constants.TYPE)) ? new DetailsFragment()
+					: Constants.TYPE_GATHER.equals(getValue(getActivity().getIntent(),Constants.TYPE)) ? new GatherFragment()
 							: new ContactsDetailsFragment();
-			mainActivity.otherFragment(fragment);
+			fragment.setValue(getActivity().getIntent(),Constants.FLAG, flag);
+			String flag=fragment.getValue(getActivity().getIntent(),Constants.FLAG);
+			System.out.println(flag);
+			mainActivity.otherBackableFragment(fragment);
 			break;
 		}
 	}
 
 	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if (DateTimeActivity.TIME_RESULT == resultCode) {
-			if (REQUEST_START_TIME_CODE == requestCode) {
-				ETstartTime.setText(data.getStringExtra("result"));
-			} else if (REQUEST_END_TIME_CODE == requestCode) {
-				ETendTime.setText(data.getStringExtra("result"));
-			}
+	public void onResult(Intent intent) {
+		String result = mainActivity.getIntent().getStringExtra("result");
+		int requestCode = mainActivity.getIntent()
+				.getIntExtra("requestCode", 0);
+		if (REQUEST_START_TIME_CODE == requestCode) {
+			ETstartTime.setText(result);
+		} else if (REQUEST_END_TIME_CODE == requestCode) {
+			ETendTime.setText(result);
 		}
+		super.onResult(intent);
 	}
 }

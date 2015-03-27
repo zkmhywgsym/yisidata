@@ -7,7 +7,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import cn.com.jdsc.R;
+import cn.com.ysdp.R;
 
 public abstract class ProcessButton extends FlatButton {
 

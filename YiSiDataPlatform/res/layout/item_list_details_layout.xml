@@ -1,148 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#ffefebe7"
-    android:padding="5dp" >
+    android:layout_margin="2dp"
+    android:background="@drawable/ic_more_item_default"
+    android:padding="10dp" >
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <View
+        android:id="@+id/leftFlag"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="60dp"
+        android:visibility="invisible" />
+
+    <View
+        android:id="@+id/rightFlag"
+        android:layout_width="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:layout_height="10dp"
+        android:visibility="visible" />
+    <!-- 1 -->
+
+    <TextView
+        android:id="@+id/tv_privader_label"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_more_item_top_default"
-        android:orientation="vertical"
-        android:layout_margin="2dp"
-        android:padding="10dp" >
+        android:layout_alignRight="@id/leftFlag"
+        android:text="@string/details_provider"
+        android:textColor="#ff333333" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:textColor="#ff333333"
-            android:text="@string/provider" />
-
-        <TextView
-            android:id="@+id/tv_provider_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="#ff333333"
-            android:text="顺达煤化" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/tv_materiel_value"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        android:background="@drawable/ic_more_item_middle_default"
-        android:orientation="vertical"
-        android:padding="10dp" >
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@id/rightFlag"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="原煤"
+        android:textColor="#ff333333" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:textColor="#ff333333"
-            android:text="@string/materiel" />
-
-        <TextView
-            android:id="@+id/tv_materiel_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="#ff333333"
-            android:text="原煤" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/label_materiel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_more_item_middle_default"
-        android:orientation="vertical"
-        android:layout_margin="2dp"
-        android:padding="10dp" >
+        android:layout_toLeftOf="@id/tv_materiel_value"
+        android:text="@string/details_materiel"
+        android:textColor="#ff333333" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:textColor="#ff333333"
-            android:text="@string/car_num" />
-
-        <TextView
-            android:id="@+id/tv_car_num_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="#ff333333"
-            android:text="25" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/tv_provider_value"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/ic_more_item_middle_default"
-        android:layout_margin="2dp"
-        android:padding="10dp" >
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/label_materiel"
+        android:layout_toRightOf="@id/tv_privader_label"
+        android:text="顺达煤化"
+        android:textColor="#ff333333" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:textColor="#ff333333"
-            android:text="@string/weight" />
+    <!-- 2 -->
 
-        <TextView
-            android:id="@+id/tv_weight_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="#ff333333"
-            android:text="36" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/tv_label_car_num"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_more_item_bottom_default"
-        android:orientation="vertical"
-        android:layout_margin="2dp"
-        android:padding="10dp" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#ff888888"
-            android:text="@string/time_title" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:textColor="#ff333333"
-            android:text="@string/time_light_label" />
+        android:layout_below="@id/tv_privader_label"
+        android:layout_gravity="left"
+        android:layout_alignRight="@id/leftFlag"
+        android:layout_marginLeft="10dp"
+        android:text="@string/car_num"
+        android:textColor="#ff333333" />
 
-        <TextView
-            android:id="@+id/tv_time_light_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="#ff333333"
-            android:text="36" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:textColor="#ff333333"
-            android:text="@string/time_weight_label" />
+    <TextView
+        android:id="@+id/tv_car_num_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_privader_label"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/tv_label_car_num"
+        android:text="25"
+        android:textColor="#ff333333" />
 
-        <TextView
-            android:id="@+id/tv_time_weight_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="#ff333333"
-            android:text="36" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_statue_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_privader_label"
+        android:layout_alignLeft="@id/rightFlag"
+        android:layout_marginLeft="10dp"
+        android:text="已发货"
+        android:textColor="#ff333333" />
 
+    <TextView
+        android:id="@+id/tv_label_statue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_privader_label"
+        android:layout_toLeftOf="@id/tv_statue_value"
+        android:text="@string/details_status"
+        android:textColor="#ff333333" />
+    
+    <!-- 3 -->
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_label_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_label_car_num"
+        android:text="@string/details_time_light_label"
+        android:layout_alignRight="@id/leftFlag"
+        android:textColor="#ff333333" />
+
+    <TextView
+        android:id="@+id/tv_time_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_label_car_num"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/tv_label_time"
+        android:text="36"
+        android:textColor="#ff333333" />
+
+    <TextView
+        android:id="@+id/tv_value_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@id/rightFlag"
+        android:layout_below="@id/tv_label_car_num"
+        android:layout_marginLeft="10dp"
+        android:textColor="#ff333333" />
+
+    <TextView
+        android:id="@+id/label_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_label_car_num"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/tv_value_weight"
+        android:text="@string/details_weight"
+        android:textColor="#ff333333" />
+
+</RelativeLayout>

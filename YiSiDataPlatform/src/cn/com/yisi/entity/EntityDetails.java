@@ -1,12 +1,13 @@
 package cn.com.yisi.entity;
-//ÏêÇéÊµÌå
+//æ˜ç»†å®ä½“
 public class EntityDetails {
-	private String provider;//¹©Ó¦ÉÌ/¿Í»§
-	private String metariel;//ÎïÁÏ
-	private String carNum;//³µºÅ
-	private String weight;//¾»ÖØ
-	private String weightTime;//Èë¿â/Çá³µÊ±¼ä
-	private String lightTime;//³ö¿â/ÖØ³µÊ±¼ä
+	private String provider;//ä¾›åº”å•†/å®¢æˆ·
+	private String metariel;//ç‰©æ–™
+	private String carNum;//è½¦ç‰Œå·/è½¦æ•°
+	private String weight;//å‡€é‡
+	private String time;//è½»è½¦æ—¶é—´/é‡è½¦æ—¶é—´
+	private String type;//å‘è´§/æ”¶è´§
+	private String statue;//çŠ¶æ€
 	public String getProvider() {
 		return provider;
 	}
@@ -31,17 +32,24 @@ public class EntityDetails {
 	public void setWeight(String weight) {
 		this.weight = weight;
 	}
-	public String getWeightTime() {
-		return weightTime;
+	public String getTime() {
+		return time;
 	}
-	public void setWeightTime(String weightTime) {
-		this.weightTime = weightTime;
+	public void setTime(String time) {
+		this.time = time;
 	}
-	public String getLightTime() {
-		return lightTime;
+	public String getType() {
+		return type;
 	}
-	public void setLightTime(String lightTime) {
-		this.lightTime = lightTime;
+	public void setType(String type) {
+		this.type = type;
 	}
+	public String getStatue() {
+		return statue;
+	}
+	public void setStatue(String statue) {
+		this.statue = statue;
+	}
+	
 	
 }

@@ -11,8 +11,8 @@
         <item >已派车</item>
         <item >已发货</item>
     </string-array>
-    <string-array name="types">
-        <item >入库</item>
-        <item >出库</item>
+    <string-array name="car_types">
+        <item >晋</item>
+        <item >鲁</item>
     </string-array>
 </resources>

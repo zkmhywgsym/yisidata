@@ -1,10 +1,10 @@
 package cn.com.yisi;
 
-import cn.com.jdsc.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.RelativeLayout;
+import cn.com.ysdp.R;
 
 public class DialogActivity extends Activity{
 	protected RelativeLayout contentLayout;

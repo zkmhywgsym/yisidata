@@ -3,23 +3,28 @@
 	<!-- 通用 -->
     <string name="app_name">易思数据平台V2.0</string>
     <string name="hint">请输入</string>
+    <string name="condition_time_hint">请选择时间</string>
     <string name="app_close">关闭应用程序</string>
     <string name="btn_cancel">取 消</string>
     <string name="btn_ok">确 定</string>
     <string name="cart_item_hint">还是先看下你想查什么吧!</string>
+    <!-- 标题栏 -->
+    <string name="btn_title_left">返回</string>
+    <string name="btn_title_right">首页</string>
     <!-- 导航 -->
     <string name="main_navigation_home">主页</string>
     <string name="main_navigation_details">明细</string>
     <string name="main_navigation_gather">汇总</string>
-    <string name="main_navigation_contacts_details">统计分析</string>
+    <string name="main_navigation_contacts_details">往来明细</string>
     <string name="main_navigation_more">更多</string>
+    <string name="main_top_tip_title">最新数据</string>
     <!-- 模块 -->
     <string name="mode_defaultActivityTitle">易思数据平台</string>
     <string name="mode_statistic_daily_title">当日累计</string>
     <string name="mode_search_conditions">查询条件</string>
     <string name="mode_details">明细</string>
     <string name="mode_gather">汇总</string>
-    <string name="mode_contacts_details">统计分析</string>
+    <string name="mode_contacts_details">往来明细</string>
     <string name="mode_home_page">首页</string>
     <string name="mode_more">更多</string>
     
@@ -30,7 +35,9 @@
     <string name="mode_update">系统更新</string>
     
     <!-- 查询 -->
-    <string name="search_details_out">明细查询</string>
+    <string name="search_details_in">进货明细查询</string>
+    <string name="search_details_out">出货明细查询</string>
+    <string name="search_details_all">全部明细查询</string>
     <string name="search_gather_out">汇总查询</string>
     <string name="search_contacts_details">统计分析</string>
     <string name="start_time">开始日期:</string>
@@ -56,9 +63,13 @@
     <string name="materiel_lable">物料净重(吨)</string>
     <string name="materiel_car_lable">车数(辆)</string>
     <!-- 详情 -->
-    <string name="provider">供应商/客户</string>
-    <string name="weight">净重</string>
-    <string name="time_title">时间</string>
-    <string name="time_light_label">入库/轻车时间</string>
-    <string name="time_weight_label">出库/重车时间</string>
+    <string name="details_materiel">物料:</string>
+    <string name="details_provider">供应商:</string>
+    <string name="details_client">客户:</string>
+    <string name="details_weight">净重:</string>
+    <string name="details_carCode">车牌:</string>
+    <string name="details_carNum">车数:</string>
+    <string name="details_status">状态:</string>
+    <string name="details_time_light_label">轻车时间:</string>
+    <string name="details_time_weight_label">重车时间:</string>
 </resources>

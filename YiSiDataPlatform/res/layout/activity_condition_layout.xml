@@ -5,25 +5,59 @@
     android:background="#ffefebe7"
     android:orientation="vertical" >
 
-    <include android:id="@+id/title_layout" layout="@layout/title_layout" />
-
-    <TextView
-        android:id="@+id/second_title"
-        android:padding="5dp"
-        android:layout_below="@id/title_layout"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/second_title_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/search_detials_title_left_margin"
-        android:textColor="#ff333333"
-        android:text="@string/search_details_out" />
+        android:background="@drawable/main_navigation_background"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/second_title1"
+            style="@style/main_tab_bottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:drawableTop="@drawable/main_navigation_home"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/search_details_in"
+            android:textColor="#ffaaaaaa" />
+
+        <RadioButton
+            android:id="@+id/second_title2"
+            style="@style/main_tab_bottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/main_navigation_home"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/search_details_out"
+            android:textColor="#ffaaaaaa" />
+
+        <RadioButton
+            android:id="@+id/second_title3"
+            style="@style/main_tab_bottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/main_navigation_home"
+            android:gravity="center"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:text="@string/search_details_all"
+            android:textColor="#ffaaaaaa" />
+    </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/second_title"
+        android:layout_below="@id/second_title_layout"
+        android:layout_margin="20dp"
         android:background="@drawable/ic_more_item_default"
-        android:orientation="horizontal"
-        android:layout_margin="20dp">
+        android:orientation="horizontal" >
 
         <LinearLayout
             android:layout_width="0dp"
@@ -71,13 +105,6 @@
                 android:layout_marginBottom="14dp"
                 android:layout_marginTop="14dp"
                 android:text="@string/status" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginBottom="14dp"
-                android:layout_marginTop="14dp"
-                android:text="@string/type" />
         </LinearLayout>
 
         <LinearLayout
@@ -92,9 +119,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/android_big_button_normal"
+                android:editable="false"
                 android:hint="@string/hint"
                 android:inputType="none"
-                android:editable="false"
                 android:singleLine="true"
                 android:text="2014-03-23 11:51" />
 
@@ -102,22 +129,37 @@
                 android:id="@+id/et_end_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:editable="false"
                 android:drawableRight="@drawable/android_big_button_normal"
+                android:editable="false"
                 android:hint="@string/hint"
                 android:inputType="none"
                 android:singleLine="true"
                 android:text="2014-03-25 11:51" />
 
-            <EditText
-                android:id="@+id/et_car_num"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableRight="@drawable/android_big_button_normal"
-                android:hint="@string/hint"
-                android:inputType="text"
-                android:singleLine="true"
-                android:text="45" />
+                android:orientation="horizontal" >
+
+                <Spinner
+                    android:id="@+id/s_car_type"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/android_big_button_normal"
+                    android:hint="@string/hint"
+                    android:inputType="none"
+                    android:singleLine="true" />
+
+                <EditText
+                    android:id="@+id/et_car_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:text="45" />
+            </LinearLayout>
 
             <Spinner
                 android:id="@+id/s_materiel"
@@ -126,8 +168,7 @@
                 android:drawableRight="@drawable/android_big_button_normal"
                 android:hint="@string/hint"
                 android:inputType="none"
-                android:singleLine="true"
-                android:text="2014-03-25 11:51:30" />
+                android:singleLine="true" />
 
             <Spinner
                 android:id="@+id/s_status"
@@ -136,43 +177,34 @@
                 android:drawableRight="@drawable/android_big_button_normal"
                 android:hint="@string/hint"
                 android:inputType="none"
-                android:singleLine="true"
-                android:text="2014-03-25 11:51:30" />
-            <Spinner
-                android:id="@+id/s_type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableRight="@drawable/android_big_button_normal"
-                android:hint="@string/hint"
-                android:inputType="none"
-                android:singleLine="true"
-                android:text="2014-03-23 11:51:30" />
+                android:singleLine="true" />
         </LinearLayout>
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/main_navigation_background"
         android:layout_alignParentBottom="true"
+        android:background="#ffefebe7"
+        android:layout_marginBottom="20dp"
         android:padding="3dp" >
 
         <Button
             android:id="@+id/btn_search"
-            android:layout_centerHorizontal="true"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="@string/btn_search" />
 
         <Button
             android:id="@+id/btn_clear"
-            android:layout_alignParentRight="true"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:gravity="center"
-            android:visibility="gone"
-            android:text="@string/btn_clear" />
+            android:text="@string/btn_clear"
+            android:visibility="gone" />
     </RelativeLayout>
 
 </RelativeLayout>

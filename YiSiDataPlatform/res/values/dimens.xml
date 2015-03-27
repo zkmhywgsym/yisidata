@@ -11,4 +11,8 @@
     <dimen name="second_menu_height">28dp</dimen>
    	<!-- 明细 -->
     <dimen name="search_detials_title_left_margin">28dp</dimen>
+    <!-- 首页 -->
+    <dimen name="main_item_title_text_size">16sp</dimen>
+    <dimen name="main_item_label_text_size">10sp</dimen>
+    <dimen name="main_item_value_text_size">20sp</dimen>
 </resources>

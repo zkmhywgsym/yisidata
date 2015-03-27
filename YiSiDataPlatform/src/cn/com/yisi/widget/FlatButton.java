@@ -1,7 +1,6 @@
 package cn.com.yisi.widget;
 
 
-import cn.com.jdsc.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,6 +11,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.Button;
+import cn.com.ysdp.R;
 
 public class FlatButton extends Button {
 

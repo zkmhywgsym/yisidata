@@ -1,15 +1,13 @@
 package cn.com.yisi;
 
-import cn.com.jdsc.R;
-
-
-import cn.com.yisi.widget.ActionProcessButton;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import cn.com.yisi.widget.ActionProcessButton;
+import cn.com.ysdp.R;
 
 public class LoginActivity extends Activity{
 	private EditText userNameET,pwdET;
