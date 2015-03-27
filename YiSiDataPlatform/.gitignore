@@ -30,3 +30,6 @@ out
 build.xml
 proguard-project.txt
 ant.properties
+
+/gen
+/bin

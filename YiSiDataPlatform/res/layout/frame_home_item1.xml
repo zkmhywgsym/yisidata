@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/main_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/title_text_color"
+        android:textSize="@dimen/main_item_title_text_size"
+        android:text="当日明细" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/light_green"
+            android:orientation="vertical"
+            android:padding="3dp" >
+
+            <TextView
+                android:id="@+id/main_item_type_label1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="原煤(吨)"
+                android:textSize="@dimen/main_item_label_text_size"
+                android:textColor="@color/label_text_color" />
+
+            <TextView
+                android:id="@+id/main_item_type_value1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/main_item_value_text_size"
+                android:textColor="@color/value_text_color1" 
+                android:text="5" />
+
+            <TextView
+                android:id="@+id/main_item_car_code1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="车号"
+                android:textSize="@dimen/main_item_label_text_size"
+                android:textColor="@color/label_text_color" />
+
+            <TextView
+                android:id="@+id/main_item_car_code_value1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/main_item_value_text_size"
+                android:textColor="@color/value_text_color2" 
+                android:text="晋A11111" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/light_red"
+            android:orientation="vertical"
+            android:padding="3dp" >
+
+            <TextView
+                android:id="@+id/main_item_type_label2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="原煤(吨)"
+                android:textSize="@dimen/main_item_label_text_size"
+                android:textColor="@color/label_text_color" />
+
+            <TextView
+                android:id="@+id/main_item_type_value2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/main_item_value_text_size"
+                android:textColor="@color/value_text_color1" 
+                android:text="5" />
+
+            <TextView
+                android:id="@+id/main_item_car_code2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="车号"
+                android:textSize="@dimen/main_item_label_text_size"
+                android:textColor="@color/label_text_color" />
+
+            <TextView
+                android:id="@+id/main_item_car_code_value2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/main_item_value_text_size"
+                android:textColor="@color/value_text_color2" 
+                android:text="晋A11111" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/dark_yellow"
+            android:orientation="vertical"
+            android:padding="3dp" >
+
+            <TextView
+                android:id="@+id/main_item_type_label3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="原煤(吨)"
+                android:textSize="@dimen/main_item_label_text_size"
+                android:textColor="@color/label_text_color" />
+
+            <TextView
+                android:id="@+id/main_item_type_value3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/main_item_value_text_size"
+                android:textColor="@color/value_text_color1" 
+                android:text="5" />
+
+            <TextView
+                android:id="@+id/main_item_car_code3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="车号"
+                android:textSize="@dimen/main_item_label_text_size"
+                android:textColor="@color/label_text_color" />
+
+            <TextView
+                android:id="@+id/main_item_car_code_value3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/main_item_value_text_size"
+                android:textColor="@color/value_text_color2" 
+                android:text="晋A11111" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
