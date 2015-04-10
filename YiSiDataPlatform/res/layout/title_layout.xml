@@ -20,8 +20,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
-        android:text="@string/btn_title_left"
-        android:background="#3AADF2"
+        android:background="@drawable/btn_back"
         android:onClick="onClick"
         android:visibility="gone" />
 
@@ -34,9 +33,8 @@
         android:layout_gravity="center_vertical"
         android:layout_marginRight="10dp"
         android:layout_marginTop="2dp"
-        android:background="#3AADF2"
+        android:background="@drawable/btn_home"
         android:onClick="onClick"
-        android:text="@string/btn_title_right"
         android:visibility="gone" />
 
     <TextView

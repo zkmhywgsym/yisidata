@@ -30,11 +30,12 @@
         android:text="@string/details_provider"
         android:textColor="#ff333333" />
 
-    <TextView
+    <cn.com.yisi.util.Marquee
         android:id="@+id/tv_materiel_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:singleLine="true"
         android:layout_alignLeft="@id/rightFlag"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -47,15 +48,17 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/tv_materiel_value"
         android:text="@string/details_materiel"
+        android:layout_marginLeft="10dp"
         android:textColor="#ff333333" />
 
-    <TextView
+    <cn.com.yisi.util.Marquee
         android:id="@+id/tv_provider_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_toLeftOf="@id/label_materiel"
         android:layout_toRightOf="@id/tv_privader_label"
+        android:singleLine="true"
         android:text="顺达煤化"
         android:textColor="#ff333333" />
 
@@ -84,23 +87,23 @@
         android:textColor="#ff333333" />
 
     <TextView
-        android:id="@+id/tv_statue_value"
+        android:id="@+id/tv_value_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/tv_privader_label"
         android:layout_alignLeft="@id/rightFlag"
+        android:layout_below="@id/tv_privader_label"
         android:layout_marginLeft="10dp"
-        android:text="已发货"
         android:textColor="#ff333333" />
 
     <TextView
-        android:id="@+id/tv_label_statue"
+        android:id="@+id/label_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_privader_label"
-        android:layout_toLeftOf="@id/tv_statue_value"
-        android:text="@string/details_status"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/tv_value_weight"
+        android:text="@string/details_weight"
         android:textColor="#ff333333" />
     
     <!-- 3 -->
@@ -114,34 +117,37 @@
         android:layout_alignRight="@id/leftFlag"
         android:textColor="#ff333333" />
 
-    <TextView
+    <cn.com.yisi.util.Marquee
         android:id="@+id/tv_time_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_label_car_num"
         android:layout_marginLeft="10dp"
+        android:singleLine="true"
         android:layout_toRightOf="@id/tv_label_time"
         android:text="36"
         android:textColor="#ff333333" />
 
+    
     <TextView
-        android:id="@+id/tv_value_weight"
+        android:id="@+id/tv_statue_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignLeft="@id/rightFlag"
         android:layout_below="@id/tv_label_car_num"
+        android:layout_alignLeft="@id/rightFlag"
         android:layout_marginLeft="10dp"
+        android:text="已发货"
         android:textColor="#ff333333" />
 
     <TextView
-        android:id="@+id/label_weight"
+        android:id="@+id/tv_label_statue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_label_car_num"
         android:layout_marginLeft="10dp"
-        android:layout_toLeftOf="@id/tv_value_weight"
-        android:text="@string/details_weight"
+        android:layout_below="@id/tv_label_car_num"
+        android:layout_toLeftOf="@id/tv_statue_value"
+        android:text="@string/details_status"
         android:textColor="#ff333333" />
 
 </RelativeLayout>

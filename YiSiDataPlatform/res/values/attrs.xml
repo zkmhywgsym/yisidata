@@ -9,7 +9,20 @@
         <attr name="pb_colorComplete" format="color" />
         <attr name="pb_colorError" format="color" />
     </declare-styleable>
-
+	<!-- 折线图 -->
+     <declare-styleable name="ChartAttrs">
+         <attr name="chart_axisColor" format="reference|color"/>
+         <attr name="chart_labelColor" format = "reference|color"/>
+         <attr name="chart_typeface" format="string"/>
+         <attr name="chart_axisBorderSpacing" format="dimension"/>
+         <attr name="chart_shadowColor" format="reference|color"/>
+        <attr name="chart_shadowDx" format = "dimension"/>
+        <attr name="chart_shadowDy" format = "dimension"/>
+        <attr name="chart_shadowRadius" format = "dimension"/>
+        <attr name="chart_axisThickness" format="dimension"/>
+        <attr name="chart_fontSize" format = "dimension"/>
+     </declare-styleable>
+     <!--  -->
     <declare-styleable name="FlatButton">
         <attr name="pb_colorPressed" format="color" />
         <attr name="pb_colorNormal" format="color" />

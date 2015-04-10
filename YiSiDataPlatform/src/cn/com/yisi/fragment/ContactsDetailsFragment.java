@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,12 +31,6 @@ public class ContactsDetailsFragment extends BaseFragment{
 		return rootView;
 	}
 	@Override
-	public void onStart() {
-		String str=getActivity().getIntent().getStringExtra("startTime");
-		Log.e(getClass().getSimpleName(), str);
-		super.onStart();
-	}
-	@Override
 	public String getTitle() {
 		return getResources().getString(R.string.mode_contacts_details);
 	}
@@ -46,13 +39,12 @@ public class ContactsDetailsFragment extends BaseFragment{
 		EntityDetails entity=null;
 		for (int i = 0; i < 10; i++) {
 			entity=new EntityDetails();
-			entity.setCarNum((i+1)+"");
+			entity.setCarCode((i+1)+"");
 			entity.setTime("2015-03-24 11:37");
-			entity.setMetariel("原煤");
-			entity.setProvider("中煤集团");
+			entity.setMaterialType("原煤");
+			entity.setCompany("中煤集团");
 			entity.setWeight((i+1)+"");
-			entity.setType("send");
-			entity.setStatue("已发货");
+			entity.setStatus("已发货");
 			list.add(entity);
 		}
 		return list;
@@ -111,12 +103,12 @@ public class ContactsDetailsFragment extends BaseFragment{
 				holder.timeLabel.setText(getResources().getString(R.string.details_time_light_label));
 				
 			}
-			holder.meteriel.setText(entity.getMetariel());
-			holder.providerValue.setText(entity.getProvider());
+			holder.meteriel.setText(entity.getMaterialType());
+			holder.providerValue.setText(entity.getCompany());
 			holder.weight.setText(entity.getWeight());
-			holder.carNumValue.setText(entity.getCarNum());
+			holder.carNumValue.setText(entity.getCarCode());
 			holder.timeValue.setText(entity.getTime());
-			holder.statue.setText(entity.getStatue());
+			holder.statue.setText(entity.getStatus());
 			return view;
 		}
 		private class Holder{

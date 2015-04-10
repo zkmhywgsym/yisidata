@@ -1,31 +1,13 @@
 package cn.com.yisi.entity;
 //明细实体
 public class EntityDetails {
-	private String provider;//供应商/客户
-	private String metariel;//物料
-	private String carNum;//车牌号/车数
+	private String company;//供应商/客户
+	private String materialType;//物料
+	private String carCode;//车牌号
 	private String weight;//净重
 	private String time;//轻车时间/重车时间
-	private String type;//发货/收货
-	private String statue;//状态
-	public String getProvider() {
-		return provider;
-	}
-	public void setProvider(String provider) {
-		this.provider = provider;
-	}
-	public String getMetariel() {
-		return metariel;
-	}
-	public void setMetariel(String metariel) {
-		this.metariel = metariel;
-	}
-	public String getCarNum() {
-		return carNum;
-	}
-	public void setCarNum(String carNum) {
-		this.carNum = carNum;
-	}
+	private String status;//状态
+	
 	public String getWeight() {
 		return weight;
 	}
@@ -38,17 +20,30 @@ public class EntityDetails {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public String getType() {
-		return type;
+	public String getStatus() {
+		return status;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	public String getStatue() {
-		return statue;
+	public String getCompany() {
+		return company;
 	}
-	public void setStatue(String statue) {
-		this.statue = statue;
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	
+	public String getMaterialType() {
+		return materialType;
+	}
+	public void setMaterialType(String materialType) {
+		this.materialType = materialType;
+	}
+	public String getCarCode() {
+		return carCode;
+	}
+	public void setCarCode(String carCode) {
+		this.carCode = carCode;
 	}
 	
 	

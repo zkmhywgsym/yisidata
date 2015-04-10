@@ -10,16 +10,42 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <TextView
-            android:layout_width="wrap_content"
+        <GridView
+            android:id="@+id/gv_tips"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_top_tip_title" 
-            android:layout_gravity="center_horizontal"/>
+            android:columnWidth="70dp"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp" >
+        </GridView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
+
+            <cn.com.yisi.widget.chart.LineChartView
+                xmlns:chart="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/linechart"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginTop="7dp"
+                android:background="#00BBA7"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                chart:chart_axisBorderSpacing="0dp"
+                chart:chart_axisColor="@color/axis"
+                chart:chart_labelColor="@color/label"
+                chart:chart_typeface="Roboto-Regular.ttf" >
+            </cn.com.yisi.widget.chart.LineChartView>
         </LinearLayout>
     </LinearLayout>
 

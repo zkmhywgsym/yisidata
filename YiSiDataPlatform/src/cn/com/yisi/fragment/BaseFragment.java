@@ -47,7 +47,6 @@ public class BaseFragment extends Fragment{
 	}
 	@Override
 	public void onAttach(Activity activity) {
-		Log.e(getClass().getSimpleName(), "onAttach");
 		super.onAttach(activity);
 	}
 	@Override
@@ -67,6 +66,7 @@ public class BaseFragment extends Fragment{
 	}
 	@Override
 	public void onStart() {
+		mainActivity.setCurFragment(this);
 		setValue(getActivity().getIntent(),Constants.MODE, getTitle());
 		super.onStart();
 	}

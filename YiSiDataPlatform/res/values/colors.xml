@@ -3,6 +3,7 @@
    <color name="white">#ffffffff</color>
     <color name="light_gray">#ffe6e6e6</color>
     <color name="black">#ff000000</color>
+    <color name="background_color">#106184</color>
     <!-- 进度按钮颜色 -->
     <color name="holo_blue_bright">#ff00ddff</color>
     <color name="holo_green_light">#ff99cc00</color>
@@ -23,4 +24,13 @@
     <color name="label_text_color">#ffffff</color>
     <color name="value_text_color1">#DF567A</color>
     <color name="value_text_color2">#857CC5</color>
+    <!-- 折线图 -->
+   <color name="axis">#ffffff</color>
+   <color name="label">#ffffff</color>
+   <color name="line_bg">#00bba7</color>
+   <color name="line_tooltip">#ffffff</color>
+   <color name="line_grid">#00a694</color>
+    <color name="line">#ffffff</color>
+    <!--  -->
+    <color name="login_sure">#322f2f</color>
 </resources>

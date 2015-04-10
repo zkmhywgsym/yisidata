@@ -1,49 +1,103 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_marginLeft="32dp"
-    android:layout_marginRight="32dp">
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/main_index"
+    android:gravity="center"
+    android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:layout_width="430dp"
+        android:layout_height="300dp"
+        android:background="@drawable/load_bj"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="10dp" >
 
         <EditText
             android:id="@+id/editUserName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:inputType="textEmailAddress"
-            android:hint="@string/login_name_hint" />
+            style="@style/LoginEditStyle"
+            android:layout_width="232dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/loadz_input"
+            android:drawableLeft="@drawable/login_user_name"
+            android:hint="请输入用户名"
+            android:minHeight="@dimen/login_height"
+            android:minWidth="@dimen/login_width"
+            android:paddingLeft="5dp" >
+        </EditText>
 
         <EditText
             android:id="@+id/editPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            style="@style/LoginEditStyle"
+            android:layout_width="@dimen/login_width"
+            android:layout_height="@dimen/login_height"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/loadz_input"
+            android:drawableLeft="@drawable/login_pwd"
+            android:hint="请输入密码"
             android:inputType="textPassword"
-            android:hint="@string/login_pwd_hint" />
+            android:minHeight="@dimen/login_height"
+            android:minWidth="@dimen/login_width"
+            android:paddingLeft="5dp" />
 
-        <cn.com.yisi.widget.ActionProcessButton
-            android:id="@+id/btnSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/login_btn_login"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            custom:pb_colorComplete="@color/green_complete"
-            custom:pb_colorNormal="@color/blue_normal"
-            custom:pb_colorPressed="@color/blue_pressed"
-            custom:pb_colorProgress="@color/purple_progress"
-            custom:pb_textProgress="@string/login_btn_logining" 
-            custom:pb_textError="帐号/密码错误" 
-            />
+        <RelativeLayout
+            android:layout_width="@dimen/login_width"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal" >
 
+            <CheckBox
+                android:id="@+id/remember_pwd_check"
+                style="@style/MyCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/login_jzmm"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
 
+            <CheckBox
+                android:id="@+id/auto_login_check"
+                style="@style/MyCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/login_checkbox_marginleft"
+                android:text="@string/login_zddl"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <cn.com.yisi.widget.ActionProcessButton
+                android:id="@+id/bt_login"
+                android:layout_width="@dimen/login_width"
+                android:layout_height="@dimen/login_button_height"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/load_button"
+                android:padding="3dp"
+                android:text="@string/login_button"
+                android:textColor="@color/login_sure"
+                android:textSize="18sp"
+                custom:pb_colorComplete="@color/green_complete"
+                custom:pb_colorNormal="@color/blue_normal"
+                custom:pb_colorPressed="@color/blue_pressed"
+                custom:pb_colorProgress="@color/purple_progress"
+                custom:pb_textError="帐号/密码错误"
+                custom:pb_textProgress="@string/login_btn_logining" />
+
+        </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

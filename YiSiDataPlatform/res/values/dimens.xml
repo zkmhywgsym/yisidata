@@ -15,4 +15,21 @@
     <dimen name="main_item_title_text_size">16sp</dimen>
     <dimen name="main_item_label_text_size">10sp</dimen>
     <dimen name="main_item_value_text_size">20sp</dimen>
+    <!-- 折线图 -->
+    <dimen name="dot_region_radius">18dp</dimen>
+    <dimen name="axis_dist_from_label">5dp</dimen>
+    <dimen name="font_size">10dp</dimen>    
+    <dimen name="grid_thickness">1dp</dimen>
+    <dimen name="axis_thickness">2dp</dimen>
+    <!-- 登陆 -->
+    <dimen name="load_bj_width">430dp</dimen>
+    <dimen name="load_bj_height">300dp</dimen>
+    <dimen name="login_width">232dp</dimen>
+    <dimen name="login_height">32dp</dimen>
+    <dimen name="login_button_height">35dp</dimen>
+    <dimen name="login_title_padding">22dp</dimen>
+    <dimen name="login_common_padding">8dp</dimen>
+    <dimen name="login_edittextnext_margintop">1dp</dimen>
+    <dimen name="loginCheckPadding">20dp</dimen>
+    <dimen name="login_checkbox_marginleft">30dp</dimen>
 </resources>

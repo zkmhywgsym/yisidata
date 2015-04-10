@@ -1,4 +1,4 @@
-package cn.com.yisi;
+package cn.com.yisi.fragment;
 
 import java.util.Calendar;
 
@@ -8,6 +8,7 @@ import kankan.wheel.widget.OnWheelScrollListener;
 import kankan.wheel.widget.WheelView;
 import kankan.wheel.widget.adapters.ArrayWheelAdapter;
 import kankan.wheel.widget.adapters.NumericWheelAdapter;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,25 +21,28 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
+import cn.com.yisi.MainActivity;
 import cn.com.ysdp.R;
 
 public class DateDialogFragment extends DialogFragment{
 	private View rootView;
-	private static DateDialogFragment dialog;
+	private static DateDialogFragment dialogFragment;
+	private Dialog dialog;
 	private DateDialogFragment() {
 		super();
 	}
 
 	public static DateDialogFragment newInstance(){
-		if (dialog==null) {
-			dialog=new DateDialogFragment();
+		if (dialogFragment==null) {
+			dialogFragment=new DateDialogFragment();
 		}
-		return dialog;
+		return dialogFragment;
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog=getDialog();
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		rootView=inflater.inflate(R.layout.wheel_view_date_time_layout, container, false);
 		init();
 		return rootView;
@@ -114,8 +118,10 @@ public class DateDialogFragment extends DialogFragment{
 								+ mins.getViewAdapter().getCurentValue(
 										mins.getCurrentItem());
 						data.putExtra("result", time);
-						getDialog().dismiss();
 						((MainActivity)getActivity()).getCurFragment().onResult(data);
+						if (dialog!=null&&dialog.isShowing()) {
+							dialog.dismiss();
+						}
 					}
 				});
 		rootView.findViewById(R.id.cancel_button).setOnClickListener(
@@ -124,10 +130,12 @@ public class DateDialogFragment extends DialogFragment{
 					@Override
 					public void onClick(View view) {
 						Intent data = getActivity().getIntent();
-						data.putExtra("result", data.getStringExtra("result")
-								+ " 00:00");
-						getDialog().dismiss();
+//						data.putExtra("result", data.getStringExtra("result")
+//								+ " 00:00");
 						((MainActivity)getActivity()).getCurFragment().onResult(data);
+						if (dialog!=null&&dialog.isShowing()) {
+							dialog.dismiss();
+						}
 					}
 				});
 

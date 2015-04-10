@@ -5,24 +5,36 @@
     android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="8" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" 
+        android:name="cn.com.yisi.YisiApp"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        <activity android:name="cn.com.yisi.LoginActivity">
-        </activity>
-        <activity
-            android:label="@string/app_name"
-            android:name="cn.com.yisi.MainActivity" >
+        <activity android:name="cn.com.yisi.GuideActivity">
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
         </activity>
-         <activity android:name="cn.com.yisi.HomeActivity"/>
-         <activity android:name="cn.com.yisi.DateTimeActivity"/>
-         <activity android:name="cn.com.yisi.SearchConditionActivity"/>
+        <activity android:name="cn.com.yisi.LoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:name="cn.com.yisi.MainActivity" >
+        </activity>
+        <!-- 
+        <activity android:name="cn.com.yisi.LinearCharActivity">
+            
+        </activity> 
+        -->
       
     </application>
 

@@ -15,4 +15,8 @@
         <item >晋</item>
         <item >鲁</item>
     </string-array>
+    <string-array name="person">
+        <item >晋煤</item>
+        <item >大同煤业</item>
+    </string-array>
 </resources>
