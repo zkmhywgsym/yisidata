@@ -48,7 +48,7 @@
             android:textSize="@dimen/bottom_tab_font_size" />
     </LinearLayout>
 
-    <me.maxwin.view.XListView
+    <zrc.widget.ZrcListView
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

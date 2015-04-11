@@ -8,8 +8,10 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import me.maxwin.view.XListView;
-import me.maxwin.view.XListView.IXListViewListener;
+import zrc.widget.SimpleFooter;
+import zrc.widget.SimpleHeader;
+import zrc.widget.ZrcListView;
+import zrc.widget.ZrcListView.OnStartListener;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,8 +28,8 @@ import cn.com.yisi.util.WebHelper;
 import cn.com.ysdp.R;
 
 //汇总
-public class GatherFragment extends BaseFragment implements IXListViewListener {
-	private XListView listView;
+public class GatherFragment extends BaseFragment {
+	private ZrcListView listView;
 	private List<EntityGather> items;
 	private BaseAdapter adapter;
 	private List<NameValuePair> params;
@@ -45,11 +47,34 @@ public class GatherFragment extends BaseFragment implements IXListViewListener {
 		flag = getValue(mainActivity.getIntent(), Constants.FLAG);
 		rootView = LayoutInflater.from(getActivity()).inflate(
 				R.layout.activity_list_details_layout, container, false);
-		listView = (XListView) rootView.findViewById(R.id.list_view);
+		listView = (ZrcListView) rootView.findViewById(R.id.list_view);
 		rootView.findViewById(R.id.foot_view).setVisibility(View.GONE);
-		listView.setXListViewListener(this);
-		listView.setPullLoadEnable(true);
-		listView.setPullRefreshEnable(true);
+		listView.setOnLoadMoreStartListener(new OnStartListener() {
+
+			@Override
+			public void onStart() {
+				onLoadMore();
+			}
+		});
+		listView.setOnRefreshStartListener(new OnStartListener() {
+
+			@Override
+			public void onStart() {
+				initData();
+			}
+		});
+		// 设置下拉刷新的样式（可选，但如果没有Header则无法下拉刷新）
+		SimpleHeader header = new SimpleHeader(mainActivity);
+		header.setTextColor(0xff0066aa);
+		header.setCircleColor(0xff33bbee);
+		listView.setHeadable(header);
+
+		// 设置加载更多的样式（可选）
+		SimpleFooter footer = new SimpleFooter(mainActivity);
+		footer.setCircleColor(0xff33bbee);
+		listView.setFootable(footer);
+		listView.refresh();
+
 		listView.setAdapter(adapter = new MyListAdapter(items = getData()));
 		return rootView;
 	}
@@ -177,33 +202,40 @@ public class GatherFragment extends BaseFragment implements IXListViewListener {
 	private void onLoad(List<EntityGather> result) {
 		items.clear();
 		items.addAll(result);
-		listView.stopRefresh();
-		listView.stopLoadMore();
+		// listView.stopRefresh();
+		// listView.stopLoadMore();
 		adapter.notifyDataSetChanged();
 	}
 
-	@Override
 	public void onLoadMore() {
 		curPage++;
-		AsyncTask<Void, Integer, List<EntityGather>> task=new AsyncTask<Void, Integer, List<EntityGather>>(){
+		AsyncTask<Void, Integer, List<EntityGather>> task = new AsyncTask<Void, Integer, List<EntityGather>>() {
 			@Override
 			protected void onPreExecute() {
 				YisiApp.showProgressDialog(mainActivity, "请稍候", "加载中……");
 				super.onPreExecute();
 			}
+
 			@Override
 			protected List<EntityGather> doInBackground(Void... arg0) {
-				WebHelper<EntityGather> helper=new WebHelper<EntityGather>(EntityGather.class);
-				List<NameValuePair> params=getParams();
-				params.add(new BasicNameValuePair("page",curPage+""));
+				WebHelper<EntityGather> helper = new WebHelper<EntityGather>(
+						EntityGather.class);
+				List<NameValuePair> params = getParams();
+				params.add(new BasicNameValuePair("page", curPage + ""));
 				return helper.getArray(Constants.URL_DETAILS_LIST, params);
 			}
+
 			@Override
 			protected void onPostExecute(List<EntityGather> results) {
 				YisiApp.disMissProgressDialog();
-				List<EntityGather> list=new ArrayList<EntityGather>();
+				List<EntityGather> list = new ArrayList<EntityGather>();
 				list.addAll(items);
 				list.addAll(results);
+				if (!results.isEmpty()) {
+					listView.setLoadMoreSuccess();
+				} else {
+					listView.stopLoadMore();
+				}
 				onLoad(list);
 				super.onPostExecute(results);
 			}
@@ -227,26 +259,28 @@ public class GatherFragment extends BaseFragment implements IXListViewListener {
 
 	// 获取参数
 	private List<NameValuePair> getParams() {
-		if (params != null) {
-			return params;
+		if (params == null) {
+
+			params = new ArrayList<NameValuePair>();
+			addParam("startTime");
+			addParam("endTime");
+			addParam("materiel");
+			addParam("person");
+			if (Constants.FLAG_RECEIVE.equals(flag)) {
+				params.add(new BasicNameValuePair("type", Constants.TYPE_ENTER
+						+ ""));
+			} else if (Constants.FLAG_SEND.equals(flag)) {
+				params.add(new BasicNameValuePair("type", Constants.TYPE_EXIT
+						+ ""));
+			}
 		}
-		params = new ArrayList<NameValuePair>();
-		addParam("startTime");
-		addParam("endTime");
-		addParam("materiel");
-		addParam("person");
-		if (Constants.FLAG_RECEIVE.equals(flag)) {
-			params.add(new BasicNameValuePair("type", Constants.TYPE_ENTER + ""));
-		} else if (Constants.FLAG_SEND.equals(flag)) {
-			params.add(new BasicNameValuePair("type", Constants.TYPE_EXIT + ""));
-		}
-		return params;
+		return new ArrayList<NameValuePair>(params);
 	}
 
 	// 加载第一页数据
 	private void initData() {
-		listView.setRefreshTime(DateFormat.getDateTimeInstance().format(
-				new Date()));
+		// listView.setRefreshTime(DateFormat.getDateTimeInstance().format(
+		// new Date()));
 		curPage = 1;
 		AsyncTask<Void, Integer, List<EntityGather>> task = new AsyncTask<Void, Integer, List<EntityGather>>() {
 			@Override
@@ -269,6 +303,12 @@ public class GatherFragment extends BaseFragment implements IXListViewListener {
 				YisiApp.disMissProgressDialog();
 				List<EntityGather> list = new ArrayList<EntityGather>();
 				list.addAll(results);
+				if (!results.isEmpty()) {
+					listView.setRefreshSuccess("加载成功"); // 通知加载成功
+					listView.startLoadMore(); // 开启LoadingMore功能
+				} else {
+					listView.setRefreshFail("加载失败");
+				}
 				onLoad(list);
 				super.onPostExecute(results);
 			}
@@ -277,8 +317,4 @@ public class GatherFragment extends BaseFragment implements IXListViewListener {
 
 	}
 
-	@Override
-	public void onRefresh() {
-		initData();
-	}
 }
