@@ -98,7 +98,7 @@ public class GatherFragment extends BaseFragment {
 		// entity.setStatue("已发货");
 		// list.add(entity);
 		// }
-		initData();
+//		initData();
 		return list;
 	}
 

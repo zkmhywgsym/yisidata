@@ -353,6 +353,7 @@ public class DetailsFragment extends BaseFragment {
 				List<NameValuePair> params = new ArrayList<NameValuePair>(
 						getParams());
 				params.add(new BasicNameValuePair("page", curPage + ""));
+//				params.add(new BasicNameValuePair("rows", 10 + ""));
 				return helper.getArray(Constants.URL_DETAILS_LIST, params);
 			}
 

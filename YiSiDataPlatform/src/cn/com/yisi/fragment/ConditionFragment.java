@@ -347,12 +347,11 @@ public class ConditionFragment extends BaseFragment implements OnClickListener {
 					"person",
 					getMapKeyByValue(Sperson.getSelectedItem().toString(),
 							curCon.getPersons()));
-			if (Constants.TYPE_GATHER.equals(getValue(getActivity().getIntent(),
-					Constants.TYPE))) {
-				if (!"全部".equals(TVcarType.getText().toString())) {
-					i.putExtra("carNum", TVcarType.getText().toString()
-							+ ETcarNum.getText().toString());
-				}
+			if (!Constants.TYPE_GATHER.equals(getValue(getActivity().getIntent(),
+					Constants.TYPE))) {//汇总
+				String str=TVcarType.getText().toString();
+				i.putExtra("carNum", "全部".equals(str)?"":str
+						+ ETcarNum.getText().toString());
 				i.putExtra("status", "全部".equals(Sstatus.getSelectedItem()
 						.toString()) ? "" : Sstatus.getSelectedItem().toString());
 			}

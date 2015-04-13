@@ -88,14 +88,16 @@ public class HomeFragment extends BaseLinearChartFragment implements
 	}
 	@Override
 	protected String[] setChartLabels() {
-		String[] lables = new String[] {"周日","周一", "周二", "周三", "周四", "周五", "周六",
-				 };
-		int dayOfWeek=Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;//昨天周几
+		Calendar cal=Calendar.getInstance(Locale.CHINA);
+//		String[] lables = new String[] {"周日","周一", "周二", "周三", "周四", "周五", "周六",};
+//		int dayOfWeek=Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;//昨天周几
 		String[] ret = new String[7];
 		for (int i = 0; i < 7; i++) {
-			dayOfWeek--;
-			dayOfWeek=dayOfWeek<0?dayOfWeek+7:dayOfWeek;
-			ret[i]=lables[dayOfWeek];
+//			dayOfWeek--;
+//			dayOfWeek=dayOfWeek<0?dayOfWeek+7:dayOfWeek;
+//			ret[i]=lables[dayOfWeek];
+			cal.roll(Calendar.DAY_OF_MONTH, -1);
+			ret[i]=cal.get(Calendar.DAY_OF_MONTH)+"日";
 		}
 		return ret;
 	}
